@@ -1,12 +1,15 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, Db } from "mongodb";
+import process from "process";
 
-const uri = "mongodb://localhost:27017";
+const uri =
+  "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000"; // Use your MongoDB Atlas URI if applicable
 const client = new MongoClient(uri);
 
-let db: any;
+let db: Db | null = null;
 
 export const connectToDb = async () => {
   try {
+    console.log("Attempting to connect to MongoDB at:", uri);
     await client.connect();
     db = client.db("node_assignment");
     console.log("Connected to MongoDB");
@@ -16,7 +19,7 @@ export const connectToDb = async () => {
   }
 };
 
-export const getDb = () => {
+export const getDb = (): Db => {
   if (!db) {
     throw new Error("Database not connected");
   }

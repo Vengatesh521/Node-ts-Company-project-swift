@@ -1,4 +1,4 @@
-interface Address {
+export interface Address {
   street: string;
   suite: string;
   city: string;
@@ -6,7 +6,7 @@ interface Address {
   geo: { lat: string; lng: string };
 }
 
-interface Company {
+export interface Company {
   name: string;
   catchPhrase: string;
   bs: string;
@@ -21,4 +21,5 @@ export interface User {
   phone: string;
   website: string;
   company: Company;
+  posts: Post[];
 }
