@@ -1,0 +1,44 @@
+# GET /load - Load 10 users into the database
+GET http://localhost:3000/load
+
+###
+
+# GET /users/1 - Get user with ID 1
+GET http://localhost:3000/users/1
+
+###
+
+# PUT /users - Add a new user (ID 11)
+PUT http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "id": 11,
+  "name": "John Doe",
+  "username": "johndoe",
+  "email": "john@example.com",
+  "address": {
+    "street": "123 Main St",
+    "suite": "Apt 4",
+    "city": "Anytown",
+    "zipcode": "12345",
+    "geo": { "lat": "0", "lng": "0" }
+  },
+  "phone": "123-456-7890",
+  "website": "johndoe.com",
+  "company": {
+    "name": "Doe Inc",
+    "catchPhrase": "Innovate",
+    "bs": "Solutions"
+  }
+}
+
+###
+
+# DELETE /users/11 - Delete user with ID 11
+DELETE http://localhost:3000/users/1
+
+###
+
+# DELETE /users - Delete all users
+DELETE http://localhost:3000/users
